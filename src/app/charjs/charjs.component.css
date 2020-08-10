@@ -1,0 +1,9 @@
+table.table {
+    margin: 35px;
+    display: inline-table;
+}
+h3.kt-portlet__head-title {
+    text-align: center;
+    margin-block-start: 19px;
+    color: darkred;
+}

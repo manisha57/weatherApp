@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="input-group mt-5">
+    <input class="form-control" type="text" #userInput placeholder="Enter city name">
+    <div class="input-group-append">
+      <button class="input-group-text btn btn-outline-primary" (click)="getCity(userInput.value)">Search</button>
+    </div>
+  </div>
+    <h2>Current Weather in {{weatherData?.name}} ,{{weatherData?.sys.country}}</h2>
+      <div class="justify-content-center align-items-center">
+      <div class="col-sm-12 col-md-12">
+        <div class="card">
+          <!-- <img class="card-img-top" src="../assets/rain.jpeg" alt="Card image" style="width:100%"> -->
+          <div class="card-body">
+           <h4 class="card-title">Current Weather Description  :{{weatherData?.weather[0].description}}</h4>
+           <p class="card-text">Current Temperature:{{temp}} &#176;C</p> <p class="card-text">Today's high Temperature :{{temp2}}&#176;C </p> <p class="card-text">Today's low Temperature : {{temp1}}&#176;C </p>
+           <button class="btn btn-primary" id="moreDetails">More</button>
+           <div class="card-body" id="showMore" style="display: none;">
+            <p class="card-text">Wind Speed: {{weatherData?.wind.speed}} km/h</p> <p class="card-text"> Humidity : {{weatherData?.main.humidity}} %</p> <p class="card-text"> Pressure: {{weatherData?.main.pressure}} hPa</p> <p class="card-text"> Sunrise Time: {{weatherData?.sys.sunrise * 1000 | customDate}}</p><p class="card-text"> Sunset Time: {{weatherData?.sys.sunrise * 1000 | customDate}}</p> 
+           </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  </div>
+  
+<app-charjs></app-charjs>
+ 

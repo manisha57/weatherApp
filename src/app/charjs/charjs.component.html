@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row">
+    <div class="input-group mt-5">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a forecast Data by Date or High Temperature or Low Temperature or Weather Description">
+    </div>
+  </div>
+</div>
+<!--"   "-->
+  <div class="kt-portlet kt-portlet--height-fluid kt-portlet--mobile ">
+    <div class="kt-portlet__head kt-portlet__head--lg kt-portlet__head--noborder kt-portlet__head--break-sm">
+        <div class="kt-portlet__head-label">
+          <h3 class="kt-portlet__head-title">
+            8 - Days Forecast
+          </h3>          
+        </div>
+    </div>
+  <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+        <!--begin: Datatable -->
+  <div class="kt-portlet__body">
+  <div class="kt-section">
+    <div class="kt-section__content" id="kt_datatable_latest_orders">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>
+              <span>Date</span>
+            </th>
+            <!-- <th>
+              <span>High Temperature</span>
+            </th> -->
+            <th [class.active]="order === 'temp.min'"
+            (click)="setOrder('temp.min')">High Temperature <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            </th>
+            <th [class.active]="order === 'temp.max'"
+            (click)="setOrder('temp.max')">Low Temperature <span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span>
+            </th>
+            <th>
+              <span>Weather Description</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dailyDates of dailyDate  | filter : searchText | orderBy: order:reverse">             
+            <td>
+              <span>
+                <span>{{dailyDates.dt | customDate}}</span>
+            </span>
+            </td>
+            <td> 
+              <span>
+                <span>
+                  <span>{{dailyDates.temp.max}}&#176;K</span>
+                </span>
+              </span>
+            </td>
+            <td>
+             <span>
+              <span>{{dailyDates.temp.min}}&#176;K</span>
+              </span>
+            </td>
+            <td>
+              <span>
+                <span>{{dailyDates.weather[0].description}}</span>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </div> 
+  
+
+    <h3 class="kt-portlet__head-title">
+      8 - Days Forecast In LineChart
+    </h3> 
+    <!--end: Datatable -->
+    <div style="display: block; height: 50%; width:50%;padding: 25px;">
+      <canvas baseChart width="400" height="400"
+        [datasets]="lineChartData"
+        [labels]="lineChartLabels"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins">
+      </canvas>
+    </div>
+  </div>
+  </div>

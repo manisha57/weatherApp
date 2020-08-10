@@ -1,0 +1,54 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    }
+    
+    .card-footer{
+        color:#cc0444;
+        font-weight: bold;
+     }
+     .col-sm-6.col-md-6 {
+        display: inline-block;
+        display: inline-block;
+        margin: 5px;
+    }
+    .card{
+        text-align: center;
+    }
+    .card-body {
+        margin: 20px;
+        padding: 5px;
+    }
+    span {
+        padding: 20px;
+        margin: 20px;
+    }
+    th {
+        padding: 10px;
+    }
+    h3.kt-portlet__head-title {
+        text-align: center;
+        font-weight: 900;
+        font-size: x-large;
+    }
+    thead.thead-light {
+        background-color: aliceblue;
+    }
+    h2 {
+        text-align: center;
+        margin: 20px;
+        color: brown;
+    }
+    h4.card-title {
+        color: darkorchid;
+        font-weight: 900;
+    }
+    p.card-text {
+        color: black;
+        font-weight: 900;
+    }
+    .card {
+        margin-block-start: 20px;
+        padding: inherit;
+        padding-block-start: 10px;
+    }
